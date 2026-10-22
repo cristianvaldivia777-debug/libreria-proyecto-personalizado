@@ -1,0 +1,9 @@
+@model Socio
+@{ ViewData["Title"] = "Eliminar socio"; }
+<h2>¿Eliminar este socio?</h2>
+<p><strong>@Model.Nombre</strong> — @Model.Correo</p>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger">Eliminar</button>
+    <a class="btn btn-link" asp-action="Index">Cancelar</a>
+</form>

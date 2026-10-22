@@ -1,0 +1,27 @@
+@model IEnumerable<Libro>
+@{ ViewData["Title"] = "Libros"; }
+<div class="d-flex justify-content-between mb-3">
+    <h2>Libros</h2>
+    <a class="btn btn-primary" asp-action="Create">Nuevo libro</a>
+</div>
+<form method="get" class="input-group mb-3">
+    <input name="buscar" value="@ViewBag.Buscar" class="form-control" placeholder="Buscar por título o autor" />
+    <button class="btn btn-outline-secondary">Buscar</button>
+</form>
+<table class="table table-striped align-middle">
+    <thead><tr>
+        <th>Título</th><th>Autor</th><th>ISBN</th><th>Año</th><th>Copias</th><th></th>
+    </tr></thead>
+    <tbody>
+    @foreach (var l in Model)
+    {
+        <tr>
+            <td>@l.Titulo</td><td>@l.Autor</td><td>@l.ISBN</td><td>@l.Anio</td><td>@l.CopiasDisponibles</td>
+            <td class="text-end">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@l.Id">Editar</a>
+                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@l.Id">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+@model Socio
+<div asp-validation-summary="All" class="text-danger"></div>
+<input type="hidden" asp-for="Id" />
+<div class="mb-3"><label asp-for="Nombre" class="form-label"></label><input asp-for="Nombre" class="form-control" /><span asp-validation-for="Nombre" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Correo" class="form-label"></label><input asp-for="Correo" class="form-control" /><span asp-validation-for="Correo" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="FechaRegistro" class="form-label"></label><input asp-for="FechaRegistro" class="form-control" /></div>
+<button class="btn btn-primary">Guardar</button>
+<a class="btn btn-link" asp-action="Index">Cancelar</a>

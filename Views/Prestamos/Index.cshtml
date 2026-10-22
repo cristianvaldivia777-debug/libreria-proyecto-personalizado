@@ -1,0 +1,31 @@
+@model IEnumerable<Prestamo>
+@{ ViewData["Title"] = "Préstamos"; }
+<div class="d-flex justify-content-between mb-3">
+    <h2>Préstamos</h2>
+    <a class="btn btn-primary" asp-action="Create">Nuevo préstamo</a>
+</div>
+<table class="table table-striped align-middle">
+    <thead><tr><th>Libro</th><th>Socio</th><th>Préstamo</th><th>Devolución</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Libro?.Titulo</td>
+            <td>@p.Socio?.Nombre</td>
+            <td>@p.FechaPrestamo.ToString("dd/MM/yyyy")</td>
+            <td>
+                @if (p.FechaDevolucion == null) { <span class="badge bg-warning text-dark">Pendiente</span> }
+                else { @p.FechaDevolucion.Value.ToString("dd/MM/yyyy") }
+            </td>
+            <td class="text-end">
+                @if (p.FechaDevolucion == null)
+                {
+                    <form asp-action="Devolver" asp-route-id="@p.Id" method="post" class="d-inline">
+                        <button class="btn btn-sm btn-success">Registrar devolución</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

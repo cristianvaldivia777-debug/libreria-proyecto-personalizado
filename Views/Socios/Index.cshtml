@@ -1,0 +1,21 @@
+@model IEnumerable<Socio>
+@{ ViewData["Title"] = "Socios"; }
+<div class="d-flex justify-content-between mb-3">
+    <h2>Socios</h2>
+    <a class="btn btn-primary" asp-action="Create">Nuevo socio</a>
+</div>
+<table class="table table-striped align-middle">
+    <thead><tr><th>Nombre</th><th>Correo</th><th>Registro</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.Nombre</td><td>@s.Correo</td><td>@s.FechaRegistro.ToString("dd/MM/yyyy")</td>
+            <td class="text-end">
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@s.Id">Editar</a>
+                <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@s.Id">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

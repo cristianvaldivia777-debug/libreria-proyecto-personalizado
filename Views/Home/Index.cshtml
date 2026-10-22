@@ -1,0 +1,13 @@
+@{ ViewData["Title"] = "Inicio"; }
+<h1 class="mb-4">Sistema de Biblioteca</h1>
+<div class="row g-3">
+    <div class="col-md-4"><div class="card text-center"><div class="card-body">
+        <h2>@ViewBag.Libros</h2><p class="mb-2">Libros</p>
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Libros" asp-action="Index">Ver</a></div></div></div>
+    <div class="col-md-4"><div class="card text-center"><div class="card-body">
+        <h2>@ViewBag.Socios</h2><p class="mb-2">Socios</p>
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Socios" asp-action="Index">Ver</a></div></div></div>
+    <div class="col-md-4"><div class="card text-center"><div class="card-body">
+        <h2>@ViewBag.Activos</h2><p class="mb-2">Préstamos activos</p>
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Prestamos" asp-action="Index">Ver</a></div></div></div>
+</div>
